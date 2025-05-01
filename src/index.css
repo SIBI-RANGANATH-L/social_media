@@ -1,4 +1,4 @@
-body {
+ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -11,3 +11,515 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  background-color: #efefef;
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+.App {
+  width: 100%;
+  max-width: 800px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #333;
+  box-shadow: 0px 0px 15px gray;
+}
+
+.Header, .Footer {
+  width: 100%;
+  background-color: #66d8f5;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header h1 {
+  font-size: 1.5rem;
+}
+
+.Header svg {
+  font-size: 2rem;
+}
+
+.Footer {
+  padding: 0.75rem;
+  display: grid;
+  place-content: center;
+}
+
+.Nav {
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.searchForm {
+  width: 80%;
+  padding: 1rem 0 0 0.75rem;
+}
+
+.searchForm input[type="text"] {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+.searchForm label {
+  position: absolute;
+  left: -99999px;
+}
+
+.Nav ul {
+  color: #fff;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.Nav li {
+  padding: 1rem;
+}
+
+.Nav li:hover, 
+.Nav li:focus {
+  padding: 1rem;
+}
+
+.Nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.Nav li:hover, 
+.Nav li:focus, 
+.Nav li:hover a, 
+.Nav li:focus a  {
+  background-color: #eee;
+  color: #333;
+}
+
+.Nav li:hover a, 
+.Nav li:focus a {
+  cursor: pointer;
+}
+
+.Home, .NewPost, .PostPage, .About, .Missing {
+  width: 100%;
+  height: 250%;
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.post {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.Home .post a {
+  text-decoration: none;
+}
+
+.Home .post a, 
+.Home .post a:visited {
+  color: #000;
+}
+
+.post:first-child {
+  margin-top: 0;
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
+.postDate {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.postBody {
+  margin: 1rem 0;
+}
+
+.newPostForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.newPostForm label {
+  margin-top: 1rem;
+}
+
+.newPostForm input[type='text'], 
+.newPostForm textarea {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+  outline: none;
+}
+
+.newPostForm textarea {
+  height: 100px;
+}
+
+.newPostForm button {
+  margin-top: 1rem;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.Missing p, .PostPage p, .NewPost p {
+  margin-top: 1rem;
+}
+
+.PostPage button {
+  height: 48px;
+  min-width: 48px;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background-color: red;
+}
+
+.editButton {
+  background-color: #333;
+}
+
+.statusMsg {
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 610px) {
+  html {
+    font-size: 12px;
+  }
+
+  .Header h1 {
+    font-size: 2rem;
+  }
+
+  .Nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Nav ul {
+    text-align: right;
+  }
+
+  .Nav li:hover, 
+  .Nav li:focus, 
+  .Nav li:hover a, 
+  .Nav li:focus a  {
+    background-color: #eee;
+    color: #333;
+  }
+
+  .searchForm {
+    width: 50%;
+    padding: .5rem 0;
+  }
+ 
+  .searchForm input[type="text"] {
+    margin-left: 0.5rem;
+  }
+
+  .newPostForm textarea {
+    height: 300px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+
+  .Header svg {
+    font-size: 3rem;
+  }
+
+} 
+
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  display: flex;
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+}
+
+.App {
+  width: 100%;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+}
+
+.Header, .Footer {
+  background: #66d8f5;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.Footer {
+  font-size: 0.9rem;
+  text-align: center;
+  background: #f0f0f0;
+  color: #666;
+}
+
+.Nav {
+  background: #333;
+  padding: 0.75rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.Nav li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.Nav li a:hover {
+  color: #66d8f5;
+}
+
+.searchForm {
+  flex-grow: 1;
+  margin-left: 1rem;
+}
+
+.searchForm input[type="text"] {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.searchForm input[type="text"]:focus {
+  border-color: #66d8f5;
+}
+
+.Home, .NewPost, .PostPage, .About, .Missing {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  background-color: #f9fafb;
+}
+
+.post {
+  background: #fff;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.post:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.Home .post a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.post h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.postDate {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.postBody {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.newPostForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.newPostForm label {
+  font-weight: 600;
+}
+
+.newPostForm input[type='text'],
+.newPostForm textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.newPostForm button {
+  background: #66d8f5;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newPostForm button:hover {
+  background: #4ec2e7;
+}
+
+.Missing p, .PostPage p, .NewPost p {
+  margin-top: 1rem;
+}
+
+.PostPage button {
+  background: #ff4d4d;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+.PostPage button:hover {
+  background: #e60000;
+}
+
+.deleteButton {
+  background-color: #ff4d4d;
+}
+
+.editButton {
+  background-color: #333;
+}
+
+.statusMsg {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+@media (min-width: 610px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 20px;
+  }
+
+  .Header h1 {
+    font-size: 2rem;
+  }
+} */
+
+
+
